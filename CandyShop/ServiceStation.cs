@@ -35,7 +35,7 @@ namespace CandyShop
                 dataGridView1[3, i].Value = cp.count;
                 i++;
             }
-            cp.GetEnumerator().Reset();
+            //cp.GetEnumerator().Reset();
             #endregion
         }
 

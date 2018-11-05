@@ -147,10 +147,10 @@ namespace CandyShop
             return IProduct.GetEnumerator();
             //throw new NotImplementedException();
         }
-
+        
         IEnumerator IEnumerable.GetEnumerator ()
         {
-            return (IEnumerator)IProduct.GetEnumerator();
+            return IProduct.GetEnumerator();
         }
 
     }
