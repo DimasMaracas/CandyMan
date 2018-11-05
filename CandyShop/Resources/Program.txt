@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestDB
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CProduct cp0 = new CProduct("Сникерс", 60, 10, DateTime.Now);
+            CProduct cp1 = new CProduct("Твикс", 50, 8, DateTime.Now);
+            CProduct cp2 = new CProduct("Марс", 50, 7, DateTime.Now);
+            
+            CProduct Products = new CProduct();
+
+            Products.Add(2, cp0);
+            Products.Add(3, cp1);
+            Products.Add(4, cp2);
+            Products.Add(1, new CProduct("Крекер", 65, 7, DateTime.Now));
+            Products.Add(9, new CProduct("Печенье", 45, 12, DateTime.Now));
+            Products.Add(12, new CProduct("Кекс", 60, 5, DateTime.Now));
+            //Products.Add(1, new CProduct());
+
+            
+            foreach (var p in Products)
+            {
+                CProduct cp = p.Value;                                 
+                Console.WriteLine("key: {0} | {1}, {2}, {3}, {4}", 
+                    p.Key, cp.description, cp.price, cp.count, cp.DateTime);
+            }
+            Console.WriteLine("------------------------------------------");
+
+        }
+    }
+}
