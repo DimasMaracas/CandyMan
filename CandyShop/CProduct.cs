@@ -5,11 +5,13 @@ using System.Data.SQLite;
 
 namespace CandyShop
 {
-    class CProduct : IDictionary<int, CProduct>, IEnumerable
-    {        
+    class CProduct : IDictionary<int, CProduct>
+    {
         public string description { get; set; }  //описание        
         public double price { get; set; }        //цена
         public int count { get; set; }          //количество товара
+        private int position { get; set; }
+        
 
         Dictionary<int, CProduct> IProduct = new Dictionary<int, CProduct>();
 
@@ -66,8 +68,8 @@ namespace CandyShop
             {
                 throw new NotImplementedException();
             }
-        }
-
+        }        
+        
         public CProduct this[int key]
         {
             get
@@ -77,15 +79,15 @@ namespace CandyShop
 
             set
             {
-                
+                //key = value;
             }
         }
 
         public CProduct ()
         {
-            //description = default(string);
-            //price = default(double);
-            //count = default(int);
+            description = default(string);
+            price = default(double);
+            count = default(int);
             //DateTime = default(DateTime);
         }
 
@@ -124,7 +126,7 @@ namespace CandyShop
 
         public void Clear ()
         {
-            throw new NotImplementedException();
+            IProduct.Clear();
         }
 
         public bool Contains (KeyValuePair<int, CProduct> item)
@@ -152,6 +154,6 @@ namespace CandyShop
         {
             return IProduct.GetEnumerator();
         }
-
+        
     }
 }
